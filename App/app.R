@@ -6,7 +6,8 @@
 library(shiny)
 library(tidyverse)
 
-bcl <- read_csv("C:/Users/h1792/Documents/Personal/UBC M.Eng/STAT 545B/Assign3/assignment-b3-hs235/bcl-data.csv")
+# bcl <- read_csv("~/Personal/UBC M.Eng/STAT 545B/Assign3/assignment-b3-hs235/bcl-data.csv")
+bcl <- read_csv("bcl-data.csv")
 
 ui <- fluidPage(
   titlePanel("BC Liquor Store Data"), 
