@@ -28,8 +28,9 @@ ui <- fluidPage(
                          selected = c("BEER", "WINE"))
     ),
     mainPanel(
-      #img(src="pic1.png"),
-      plotOutput("alcohol_hist"), 
+      tabsetPanel(
+      tabPanel("Frequency Distribution of Alcohol Content", plotOutput("alcohol_hist")),
+      tabPanel("Frequency Distribution of Sweetness", plotOutput("sweetness_hist"))),
       tableOutput("data_table")
     )
   ), 
@@ -50,6 +51,12 @@ server <- function(input, output) {
     renderPlot({
       filtered_data() %>% 
         ggplot(aes(Alcohol_Content)) + geom_histogram()
+    })
+  
+  output$sweetness_hist <- 
+    renderPlot({
+      filtered_data() %>% 
+        ggplot(aes(Sweetness)) + geom_histogram()
     })
   
   output$data_table <- 
