@@ -13,7 +13,7 @@ bcl <- read_csv("bcl-data.csv")
 
 ui <- fluidPage(
   
-  # Adding Feature 1: Displaying corresponding image of BC Liquor Store to increase app's visual appeal for enhanced user experience
+  # Adding Feature 1: Displaying an image of BC Liquor Store to increase app's visual appeal for enhanced user experience
   titlePanel(title = div(img(src="pic.png", height="145px", width="255px", alt="error with image", deleteFile=FALSE),"BC Liquor Store Data")),
   
   sidebarLayout(
@@ -21,13 +21,16 @@ ui <- fluidPage(
       sliderInput("priceInput", "Price", 0, 100, 
                   value = c(25, 40), pre = "$"), 
       
-      # Adding Feature 2: 
+      # Amended radio buttons to multi-input check box 
       checkboxGroupInput(inputId = "typeInput",
                          label = "Choose Drink Type(s):",
                          choices = c("BEER", "REFRESHMENT", "SPIRITS", "WINE"),
-                         selected = c("BEER", "WINE"))
+                         selected = c("BEER", "WINE")),
+      
+      textOutput("filteredResult")
     ),
     mainPanel(
+      # Adding Feature 2: Inclucing another tab to display 
       tabsetPanel(
       tabPanel("Frequency Distribution of Alcohol Content", plotOutput("alcohol_hist")),
       tabPanel("Frequency Distribution of Sweetness", plotOutput("sweetness_hist"))),
@@ -57,6 +60,16 @@ server <- function(input, output) {
     renderPlot({
       filtered_data() %>% 
         ggplot(aes(Sweetness)) + geom_histogram()
+    })
+  
+  # Feature 2: 
+  output$filteredResult<-
+    renderText({
+      tempCount <- nrow(filtered_data())
+      if (is.null(tempCount)) {
+        tempCount<-0
+      }
+      paste("No of products found per above selection ", tempCount)
     })
   
   output$data_table <- 
