@@ -6,8 +6,8 @@
 library(shiny)
 library(tidyverse)
 
-# bcl <- read_csv("~/Personal/UBC M.Eng/STAT 545B/Assign3/assignment-b3-hs235/bcl-data.csv")
-bcl <- read_csv("bcl-data.csv")
+bcl <- read_csv("~/Personal/UBC M.Eng/STAT 545B/Assign3/assignment-b3-hs235/bcl-data.csv")
+# bcl <- read_csv("bcl-data.csv")
 
 ui <- fluidPage(
   titlePanel("BC Liquor Store Data"), 
@@ -22,6 +22,7 @@ ui <- fluidPage(
                                "SPIRITS", "WINE"))
     ),
     mainPanel(
+      img(src = "image1.jpg"),
       plotOutput("alcohol_hist"), 
       tableOutput("data_table")
     )
