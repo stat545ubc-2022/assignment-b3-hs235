@@ -12,14 +12,15 @@ library(readr)
 bcl <- read_csv("bcl-data.csv")
 
 ui <- fluidPage(
- 
+  
+  # Adding Feature 1: Displaying image of a BC Liquor Store to increase the visual appeal of the app
   titlePanel(title = div(img(src="pic.png", height="145px", width="255px", alt="error with image", deleteFile=FALSE),"BC Liquor Store Data")),
   
   sidebarLayout(
     sidebarPanel(
       sliderInput("priceInput", "Price", 0, 100, 
                   value = c(25, 40), pre = "$"), 
-      radioButtons("typeInput", "Type", 
+      checkboxGroupInput("typeInput", "Type", 
                    choices = c("BEER", "REFRESHMENT", 
                                "SPIRITS", "WINE"))
     ),
