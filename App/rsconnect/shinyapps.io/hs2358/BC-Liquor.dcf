@@ -1,0 +1,13 @@
+name: BC-Liquor
+title: BC-Liquor
+username:
+account: hs2358
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 7718790
+bundleId: 6548764
+url: https://hs2358.shinyapps.io/BC-Liquor/
+when: 1669243169.51498
+lastSyncTime: 1669243169.51499
+asMultiple: FALSE
+asStatic: FALSE
