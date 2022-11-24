@@ -30,7 +30,7 @@ ui <- fluidPage(
     mainPanel(
       tabsetPanel(
       tabPanel("Distribution by Alcohol Content", plotOutput("alcohol_hist")),
-      tabPanel("Distribution by Country", plotOutput("country_hist"))),
+      tabPanel("Distribution by Sweetness", plotOutput("country_hist"))),
       tableOutput("data_table")
     )
   ), 
@@ -56,7 +56,7 @@ server <- function(input, output) {
   output$country_hist <- 
     renderPlot({
       filtered_data() %>% 
-        ggplot(aes(Country)) + geom_histogram()
+        ggplot(aes(Sweetness)) + geom_histogram()
     })
   
   output$data_table <- 
