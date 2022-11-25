@@ -3,12 +3,11 @@
 For this assignment, option A: BC Liquor app was selected.
 
 ## Description
-This app provides access to the 
+This app provides access to the.  
 Features added:
 - Displaying a relevant image
 - Computing and showing results
-- 
-- 
+
 
 ## Link
 The app is being hosted on the 'shinnyapp.io' webpage and can be accessed from:  
