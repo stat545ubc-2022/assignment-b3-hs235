@@ -6,9 +6,7 @@ library(shiny)
 library(tidyverse)
 library(readr)
 
-#setwd("C:/Users/h1792/Documents/Personal/UBC M.Eng/STAT 545B/Assign3/assignment-b3-hs235")
-
-#bcl <- read_csv("~/Personal/UBC M.Eng/STAT 545B/Assign3/assignment-b3-hs235/bcl-data.csv")
+# Loading dataset
 bcl <- read_csv("bcl-data.csv")
 
 ui <- fluidPage(
@@ -27,10 +25,11 @@ ui <- fluidPage(
                          choices = c("BEER", "REFRESHMENT", "SPIRITS", "WINE"),
                          selected = c("BEER", "WINE")),
       
+      # Displaying results for Feature 2 just below the filters for appropriate layout
       textOutput("filteredResult")
     ),
     mainPanel(
-      # Adding Feature 2: Inclucing another tab to display 
+      # Adding Feature 3: Including a 'tab' layout to plot another histogram allowing for comparison between different data attributes
       tabsetPanel(
       tabPanel("Frequency Distribution of Alcohol Content", plotOutput("alcohol_hist")),
       tabPanel("Frequency Distribution of Sweetness", plotOutput("sweetness_hist"))),
@@ -43,6 +42,7 @@ ui <- fluidPage(
 
 server <- function(input, output) {
   
+  # Making the dataset reactive to user inputs i.e. filters
   filtered_data <- 
     reactive({
       bcl %>% filter(Price > input$priceInput[1] & 
@@ -50,19 +50,21 @@ server <- function(input, output) {
                        Type == input$typeInput)
     })
   
+  # Displaying histogram for 'alcohol_content' attribute
   output$alcohol_hist <- 
     renderPlot({
       filtered_data() %>% 
         ggplot(aes(Alcohol_Content)) + geom_histogram()
     })
   
+  # Displaying histogram for 'sweetness' attribute
   output$sweetness_hist <- 
     renderPlot({
       filtered_data() %>% 
         ggplot(aes(Sweetness)) + geom_histogram()
     })
   
-  # Feature 2: 
+  # Feature 2: Computing the result for total item selections present in dataset for the combined user filters
   output$filteredResult<-
     renderText({
       tempCount <- nrow(filtered_data())
