@@ -10,7 +10,7 @@ This app provides basic data exploration and analysis for the BC Liquor dataset.
 - **Computing results for user filters**  
   Total product items based on the combination of user filters is calculated and displayed - directly increasing the data analysis functionality by returning a concise answer to a query over a large dataset.  
 - **Improving information and layout**  
-  Plot for another data attribute is added; allow multi-dimension data exploration, and is displayed via 'tabs' layout for an aesthetic and appropriate representation scheme i.e. related information is placed closely.
+  Plot for another data attribute is added; allows multi-dimension data exploration, and is displayed via 'tabs' layout for an aesthetic and appropriate representation scheme i.e. related information is placed closely.
 
 ### App Access
 The app is being hosted on the 'shinnyapp.io' webpage and can be accessed from [here](https://hs2358.shinyapps.io/BC-Liquor/).
