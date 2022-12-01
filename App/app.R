@@ -1,4 +1,3 @@
-#
 # This is a Shiny web application. You can run the application by clicking
 # the 'Run App' button above.
 
@@ -26,8 +25,10 @@ ui <- fluidPage(
                          selected = c("BEER", "WINE")),
       
       # Displaying results for Feature 2 just below the filters for appropriate layout
-      textOutput("filteredResult")
+      textOutput("filteredResult"),
+      downloadButton("downloadData", "Data Download")
     ),
+    
     mainPanel(
       # Adding Feature 3: Including a 'tab' layout to plot another histogram allowing for comparison between different data attributes
       tabsetPanel(
@@ -78,6 +79,16 @@ server <- function(input, output) {
     renderTable({
       filtered_data()
     })
+  
+  # Adding downloading data..
+  output$downloadData <- downloadHandler(
+    filename = function(){
+      paste("BC-Liquor-Dataset", ".csv", sep="")
+    },
+    content = function(file){
+      write.csv(filtered_data(), file)
+    }  
+      )  
 }
 
 
