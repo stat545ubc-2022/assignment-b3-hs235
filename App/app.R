@@ -4,11 +4,15 @@
 library(shiny)
 library(tidyverse)
 library(readr)
+library(shinythemes)
 
 # Loading dataset
 bcl <- read_csv("bcl-data.csv")
 
 ui <- fluidPage(
+  
+  # Setting a visually appealing theme for the app
+  theme = shinytheme("superhero"),
   
   # Adding Feature 1: Displaying an image of BC Liquor Store to increase app's visual appeal for enhanced user experience
   titlePanel(title = div(img(src="pic.png", height="145px", width="255px", alt="error with image", deleteFile=FALSE),"BC Liquor Store Data")),
