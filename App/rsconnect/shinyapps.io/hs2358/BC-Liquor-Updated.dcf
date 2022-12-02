@@ -5,9 +5,9 @@ account: hs2358
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 7788756
-bundleId: 6579339
+bundleId: 6579621
 url: https://hs2358.shinyapps.io/BC-Liquor-Updated/
-when: 1669935486.86701
-lastSyncTime: 1669935486.86704
+when: 1669940488.7283
+lastSyncTime: 1669940488.72833
 asMultiple: FALSE
 asStatic: FALSE

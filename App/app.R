@@ -31,8 +31,7 @@ ui <-navbarPage("BC Liquor Store Data", theme = shinytheme("sandstone"),
                          selected = c("BEER", "WINE")),
       
       # Displaying results for Feature 2 just below the filters for appropriate layout
-      textOutput("filteredResult"),
-      downloadButton("downloadData", "Data Download")
+      textOutput("filteredResult")
     ),
     
     mainPanel(
@@ -42,15 +41,17 @@ ui <-navbarPage("BC Liquor Store Data", theme = shinytheme("sandstone"),
       tabPanel("Frequency Distribution of Sweetness", plotOutput("sweetness_hist"))),
       DT::dataTableOutput("data_table")  # changing table rendering...
     )
-  ), 
-  a(href="https://github.com/daattali/shiny-server/blob/master/bcl/data/bcl-data.csv", 
-    "Link to the original data set")),
+  )),
   
   tabPanel("Data Table"
            
            ),
   
-  tabPanel("Data")
+  tabPanel("Data",
+           downloadButton("downloadData", "Data Download"),
+           a(href="https://github.com/daattali/shiny-server/blob/master/bcl/data/bcl-data.csv", 
+             "Link to the original data set")
+           )
 )
 
 server <- function(input, output) {
