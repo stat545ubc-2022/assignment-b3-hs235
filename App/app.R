@@ -3,17 +3,19 @@
 
 library(shiny)
 library(tidyverse)
-library(readr)
 library(shinythemes)
+library(DT)
+library(readr)
 
 # Loading dataset
 bcl <- read_csv("bcl-data.csv")
 
-ui <- fluidPage(
+# Setting a visually appealing theme for the app
+# Creating a top page navigation layout for the app
+ui <-navbarPage("BC Liquor Store Data", theme = shinytheme("sandstone"),
   
-  # Setting a visually appealing theme for the app
-  theme = shinytheme("superhero"),
-  
+  tabPanel("Plots",
+    
   # Adding Feature 1: Displaying an image of BC Liquor Store to increase app's visual appeal for enhanced user experience
   titlePanel(title = div(img(src="pic.png", height="145px", width="255px", alt="error with image", deleteFile=FALSE),"BC Liquor Store Data")),
   
@@ -38,11 +40,17 @@ ui <- fluidPage(
       tabsetPanel(
       tabPanel("Frequency Distribution of Alcohol Content", plotOutput("alcohol_hist")),
       tabPanel("Frequency Distribution of Sweetness", plotOutput("sweetness_hist"))),
-      tableOutput("data_table")
+      DT::dataTableOutput("data_table")  # changing table rendering...
     )
   ), 
   a(href="https://github.com/daattali/shiny-server/blob/master/bcl/data/bcl-data.csv", 
-    "Link to the original data set")
+    "Link to the original data set")),
+  
+  tabPanel("Data Table"
+           
+           ),
+  
+  tabPanel("Data")
 )
 
 server <- function(input, output) {
@@ -80,7 +88,8 @@ server <- function(input, output) {
     })
   
   output$data_table <- 
-    renderTable({
+    # changing data rendering
+    DT::renderDataTable({
       filtered_data()
     })
   
