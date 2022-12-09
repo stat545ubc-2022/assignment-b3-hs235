@@ -19,9 +19,9 @@ Assignment B3 specific features:
   Plot for another data attribute is added; allows multi-dimension data exploration, and is displayed via 'tabs' layout for an aesthetic and appropriate representation scheme i.e. related information is placed closely.
 
 ### App Access
-The apps are being hosted on the 'shinnyapp.io' webpage and can be accessed per below:
-[version 0.2.0](https://hs2358.shinyapps.io/BC-Liquor-Updated/)
-[version 0.1.0](https://hs2358.shinyapps.io/BC-Liquor/)
+The apps are being hosted on the 'shinnyapp.io' webpage and can be accessed per below:  
+[version 0.2.0](https://hs2358.shinyapps.io/BC-Liquor-Updated/)  
+[version 0.1.0](https://hs2358.shinyapps.io/BC-Liquor/)  
 
 ### Acknowledgements
 1. The app is an extension of Dean Attali's pre-existing app. It can be found [here](https://deanattali.com/blog/building-shiny-apps-tutorial/).
