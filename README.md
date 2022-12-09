@@ -7,7 +7,9 @@ This app provides basic data exploration and analysis for the BC Liquor dataset.
   
 Assignment B4 specific features:
 
-- 
+- **Downloading data**  
+- **Interactive data table**  
+- **Improved Page Layout**  
 
 Assignment B3 specific features:
   
@@ -20,8 +22,8 @@ Assignment B3 specific features:
 
 ### App Access
 The apps are being hosted on the 'shinnyapp.io' webpage and can be accessed per below:  
-[version 0.2.0](https://hs2358.shinyapps.io/BC-Liquor-Updated/)  
-[version 0.1.0](https://hs2358.shinyapps.io/BC-Liquor/)  
+Assignment B4: [version 0.2.0](https://hs2358.shinyapps.io/BC-Liquor-Updated/)  
+Assignment B3: [version 0.1.0](https://hs2358.shinyapps.io/BC-Liquor/)  
 
 ### Acknowledgements
 1. The app is an extension of Dean Attali's pre-existing app. It can be found [here](https://deanattali.com/blog/building-shiny-apps-tutorial/).
