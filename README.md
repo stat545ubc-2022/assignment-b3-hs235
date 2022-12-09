@@ -1,6 +1,6 @@
 # STAT 545B: Assignment B4
 
-This assignment continues on focus working with "Shiny" applications. Selecting, **option A: BC Liquor app**, I decided to modify an existing app.
+This assignment continues the focus on working with "Shiny" applications. Selecting, **option A: BC Liquor app**, I decided to modify an existing app.
 
 ### Description
 This app provides basic data exploration and analysis for the BC Liquor dataset. The user can filter the dataset using custom selection on price range and drink type(s). The app also displays the filtered dataset. To enhance the value provided to the user the app increases data exploration functionality and user experience through the addition of functional and UI features.  
@@ -12,7 +12,7 @@ Assignment B4 specific features:
 - **Interactive data table**  
   Converted a static data table to an interactive one - enhancing the functionality. Users can conveniently sort columns as well as perform custom search via input box.
 - **Improved app layout**  
-  Increased UI through navigation tabs for housing similar type of information together and a clearer user understanding, as well as an app theme for visual appeal. 
+  Increased UI through navigation tabs for housing similar type of information per app page and a clearer user understanding, as well as an app theme for improved visual appeal. 
 
 Assignment B3 specific features:
   
