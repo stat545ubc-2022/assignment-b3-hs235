@@ -1,9 +1,15 @@
-# STAT 545B: Assignment B3
+# STAT 545B: Assignment B4
 
 This assignment focuses on working with "Shiny" applications. Selecting, **option A: BC Liquor app**, I decided to modify an existing app.
 
 ### Description
-This app provides basic data exploration and analysis for the BC Liquor dataset. The user can filter the dataset using custom selection on price range and drink type(s). The app also displays the filtered dataset. To enhance the value provided to the user the app increases data exploration functionality and user experience through the addition of following three features:  
+This app provides basic data exploration and analysis for the BC Liquor dataset. The user can filter the dataset using custom selection on price range and drink type(s). The app also displays the filtered dataset. To enhance the value provided to the user the app increases data exploration functionality and user experience through the addition of functional and UI features.  
+  
+Assignment B4 specific features:
+
+- 
+
+Assignment B3 specific features:
   
 - **Displaying an image**  
   Including relevant image(s) enhances the visual appeal thereby increasing user interface experience.  
@@ -13,7 +19,9 @@ This app provides basic data exploration and analysis for the BC Liquor dataset.
   Plot for another data attribute is added; allows multi-dimension data exploration, and is displayed via 'tabs' layout for an aesthetic and appropriate representation scheme i.e. related information is placed closely.
 
 ### App Access
-The app is being hosted on the 'shinnyapp.io' webpage and can be accessed from [here](https://hs2358.shinyapps.io/BC-Liquor/).
+The apps are being hosted on the 'shinnyapp.io' webpage and can be accessed per below:
+[version 0.2.0](https://hs2358.shinyapps.io/BC-Liquor-Updated/)
+[version 0.1.0](https://hs2358.shinyapps.io/BC-Liquor/)
 
 ### Acknowledgements
 1. The app is an extension of Dean Attali's pre-existing app. It can be found [here](https://deanattali.com/blog/building-shiny-apps-tutorial/).
