@@ -17,7 +17,8 @@ ui <-navbarPage("BC Liquor Store Data", theme = shinytheme("sandstone"),
   tabPanel("Plots",
     
   # Adding Feature 1: Displaying an image of BC Liquor Store to increase app's visual appeal for enhanced user experience
-  titlePanel(title = "BC Liquor Store Data"),
+  titlePanel(title = "Basic Exploratory data analsyis: Visual Information"),
+  h3("Uawr can make selections"),
   
   sidebarLayout(
     sidebarPanel(
@@ -39,16 +40,17 @@ ui <-navbarPage("BC Liquor Store Data", theme = shinytheme("sandstone"),
       tabsetPanel(
       tabPanel("Frequency Distribution of Alcohol Content", plotOutput("alcohol_hist")),
       tabPanel("Frequency Distribution of Sweetness", plotOutput("sweetness_hist")))
-      #DT::dataTableOutput("data_table")  # changing table rendering...
     )
   )),
   
   tabPanel("Table",
+           titlePanel(title = "Basic Exploratory data analsyis: Tabular Information"),
+           h4("This table delineates filtered information as per user criteria set in the tab 'Plots'"),
+           h4("Table is interactive for further sorting and filtering"),
            
            sidebarLayout(
-             
              sidebarPanel(
-               img(src="pic.png", height="290px", width="510px", alt="error with image", deleteFile=FALSE)
+               img(src="pic.png", height="203px", width="357px", alt="error with image", deleteFile=FALSE)
              ),
            
              mainPanel(
@@ -59,9 +61,10 @@ ui <-navbarPage("BC Liquor Store Data", theme = shinytheme("sandstone"),
            )),
   
   tabPanel("Data",
+           h3("Data with applicable filters can be downloaded as .csv:"),
            downloadButton("downloadData", "Data Download"),
            
-           
+           h3("Acknowledgements:"),
            a(href="https://github.com/daattali/shiny-server/blob/master/bcl/data/bcl-data.csv", 
              "Link to the original data set")
            )
