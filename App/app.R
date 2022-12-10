@@ -17,8 +17,9 @@ ui <-navbarPage("BC Liquor Store Data", theme = shinytheme("sandstone"),
   tabPanel("Plots",
     
   # Adding Feature 1: Displaying an image of BC Liquor Store to increase app's visual appeal for enhanced user experience
-  titlePanel(title = "Basic Exploratory data analsyis: Visual Information"),
-  h3("Uawr can make selections"),
+  titlePanel(title = "Basic Data Exploration: Visual"),
+  h4("This app serves as a dashboard to conduct basic EDA on the BC liquor store dataset."),
+  h4("Data filters:"),
   
   sidebarLayout(
     sidebarPanel(
@@ -44,8 +45,8 @@ ui <-navbarPage("BC Liquor Store Data", theme = shinytheme("sandstone"),
   )),
   
   tabPanel("Table",
-           titlePanel(title = "Basic Exploratory data analsyis: Tabular Information"),
-           h4("This table delineates filtered information as per user criteria set in the tab 'Plots'"),
+           titlePanel(title = "Basic Data Exploration: Tabular"),
+           h4("Table delineates filtered information per user selections"),
            h4("Table is interactive for further sorting and filtering"),
            
            sidebarLayout(
