@@ -5,13 +5,12 @@ library(shiny)
 library(tidyverse)
 library(shinythemes)
 library(DT)
-library(readr)
 
 # Loading dataset
 bcl <- read_csv("bcl-data.csv")
 
-# Setting a visually appealing theme for the app
-# Creating a top page navigation layout for the app
+# Feature 6: Better UI through setting a visually appealing theme for the app
+# Feature 6: Better UI through top page navigation for different app aspects
 ui <-navbarPage("BC Liquor Store Data", theme = shinytheme("sandstone"),
   
   tabPanel("Plots",
@@ -55,16 +54,18 @@ ui <-navbarPage("BC Liquor Store Data", theme = shinytheme("sandstone"),
              ),
            
              mainPanel(
-               # changing table rendering...
+               # Using package DT, rendering table output
                DT::dataTableOutput("data_table")  
              )
              
            )),
   
   tabPanel("Data",
+           # Including the data download button
            h3("Data with applicable filters can be downloaded as .csv:"),
            downloadButton("downloadData", "Data Download"),
            
+           # Displaying acknowledgements
            h3("Acknowledgements:"),
            a(href="https://github.com/daattali/shiny-server/blob/master/bcl/data/bcl-data.csv", 
              "Link to the original data set")
@@ -114,13 +115,13 @@ server <- function(input, output) {
       paste("No of products found per above selection ", tempCount)
     })
   
+  # Adding Feature 5: changing data rendering for table to enable interactivity
   output$data_table <- 
-    # changing data rendering
     DT::renderDataTable({
       filtered_data()
     })
   
-  # Adding downloading data..
+  # Adding Feature 4: Downloading filtered data
   output$downloadData <- downloadHandler(
     filename = function(){
       paste("BC-Liquor-Dataset", ".csv", sep="")
