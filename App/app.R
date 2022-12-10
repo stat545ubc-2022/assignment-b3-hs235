@@ -17,7 +17,9 @@ ui <-navbarPage("BC Liquor Store Data", theme = shinytheme("sandstone"),
   tabPanel("Plots",
     
   # Adding Feature 1: Displaying an image of BC Liquor Store to increase app's visual appeal for enhanced user experience
-  titlePanel(title = div(img(src="pic.png", height="145px", width="255px", alt="error with image", deleteFile=FALSE),"BC Liquor Store Data")),
+  titlePanel(title = "Basic Data Exploration: Visual"),
+  h4("This app serves as a dashboard to conduct basic EDA on the BC liquor store dataset."),
+  h4("Data filters:"),
   
   sidebarLayout(
     sidebarPanel(
@@ -38,17 +40,32 @@ ui <-navbarPage("BC Liquor Store Data", theme = shinytheme("sandstone"),
       # Adding Feature 3: Including a 'tab' layout to plot another histogram allowing for comparison between different data attributes
       tabsetPanel(
       tabPanel("Frequency Distribution of Alcohol Content", plotOutput("alcohol_hist")),
-      tabPanel("Frequency Distribution of Sweetness", plotOutput("sweetness_hist"))),
-      DT::dataTableOutput("data_table")  # changing table rendering...
+      tabPanel("Frequency Distribution of Sweetness", plotOutput("sweetness_hist")))
     )
   )),
   
-  tabPanel("Data Table"
+  tabPanel("Table",
+           titlePanel(title = "Basic Data Exploration: Tabular"),
+           h4("Table delineates filtered information per user selections"),
+           h4("Table is interactive for further sorting and filtering"),
            
-           ),
+           sidebarLayout(
+             sidebarPanel(
+               img(src="pic.png", height="203px", width="357px", alt="error with image", deleteFile=FALSE)
+             ),
+           
+             mainPanel(
+               # changing table rendering...
+               DT::dataTableOutput("data_table")  
+             )
+             
+           )),
   
   tabPanel("Data",
+           h3("Data with applicable filters can be downloaded as .csv:"),
            downloadButton("downloadData", "Data Download"),
+           
+           h3("Acknowledgements:"),
            a(href="https://github.com/daattali/shiny-server/blob/master/bcl/data/bcl-data.csv", 
              "Link to the original data set")
            )
@@ -64,6 +81,7 @@ server <- function(input, output) {
                        Type == input$typeInput)
     })
   
+
   # Displaying histogram for 'alcohol_content' attribute
   output$alcohol_hist <- 
     renderPlot({
@@ -77,6 +95,14 @@ server <- function(input, output) {
       filtered_data() %>% 
         ggplot(aes(Sweetness)) + geom_histogram()
     })
+  
+  # Displaying histogram for 'country' attribute
+  output$country_hist <- 
+    renderPlot({
+      filtered_data() %>% 
+        ggplot(aes(Country)) + geom_histogram()
+    })
+  
   
   # Feature 2: Computing the result for total item selections present in dataset for the combined user filters
   output$filteredResult<-
